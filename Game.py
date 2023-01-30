@@ -53,7 +53,7 @@ class Game():
         self.showCard(0)
         self.cardNumber = 0
         self.currentCardName, self.currentCardValue = \
-                                        self.getCardNameValue(self.cardNumber)
+                                        self.getCardNameAndValue(self.cardNumber)
         
         self.messageText.setValue(f'Starting card is {self.currentCardName} \
                                                 will the next card be higher or lower?')
