@@ -25,7 +25,6 @@ class Card():
         self.images.replace('front')
     
     def getName(self):
-        type(self.cardName)
         return self.cardName
     
     def getValue(self):
