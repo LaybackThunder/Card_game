@@ -27,7 +27,7 @@ higherButton = pygwidgets.TextButton(window, (540, 520),
                             'Higher', width=120, height=55)
 lowerButton = pygwidgets.TextButton(window, (340, 520),
                             'Lower', width=120, height=55)
-quitButoon = pygwidgets.TextButton(window, (880, 530),
+quitButton = pygwidgets.TextButton(window, (880, 530),
                             'Quit', width=100, height=45)
 
 # 5 - Initialize variables
@@ -40,22 +40,22 @@ while True:
     for event in pygame.event.get(): # Check for quiting the game
         if ((event.type == QUIT) or 
             ((event.type == KEYDOWN) and (event.type == K_ESCAPE)) or
-            (quitButoon.handleEvent(event))):
+            (quitButton.handleEvent(event))):
             pygame.quit()
             sys.exit()
         
         if newGameButton.handleEvent(event): # Creates a new game/round
-            oGame.reset()
-            lowerButton.enable()
-            higherButton.enable()
+            oGame.reset() # New game
+            lowerButton.enable() # Allow players to click button
+            higherButton.enable() # Allow players to click button
         
-        if higherButton.handleEvent(event):
+        if higherButton.handleEvent(event): # Is game over or is card higher?
             gameOver = oGame.hitHigherOrLower(HIGHER)
             if gameOver:
                 higherButton.disable()
                 lowerButton.disable()
         
-        if lowerButton.handleEvent(event):
+        if lowerButton.handleEvent(event): # Is game over or is card lower?
             gameOver = oGame.hitHigherOrLower(LOWER)
             if gameOver:
                 higherButton.disable()
@@ -73,7 +73,7 @@ while True:
     newGameButton.draw()
     higherButton.draw()
     lowerButton.draw()
-    quitButoon.draw()
+    quitButton.draw()
 
     # 11 - Update the window
     pygame.display.update()

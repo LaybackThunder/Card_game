@@ -16,7 +16,7 @@ class Deck():
         self.startingDeckList = []
         self.playingDeckList = []
         for suit in Deck.SUIT_TUPLE:
-            for rank, value in Deck.STANDART_DICT.items():
+            for rank, value in rankValueDict.items():
                 oCard = Card(window, rank, suit, value)
                 self.startingDeckList.append(oCard)
         
