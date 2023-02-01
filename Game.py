@@ -22,7 +22,7 @@ class Game():
 
         self.messageText = pygwidgets.DisplayText(window, (50, 460),
                                     '', width=900, justified='center',
-                                    fontSize=36, textColor=WHITE)
+                                    fontSize=27, textColor=WHITE)
         
         self.loserSound = pygame.mixer.Sound("sounds/sounds_loser.wav")
         self.winnerSound = pygame.mixer.Sound("sounds/sounds_ding.wav")
