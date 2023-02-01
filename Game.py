@@ -29,7 +29,7 @@ class Game():
         self.cardShuffleSound = pygame.mixer.Sound("sounds/sounds_cardShuffle.wav")
 
         self.cardXPositionsList = [] # Stores the x position of the cards
-        thisLeft = Game.CARDS_LEFT
+        thisLeft = Game.CARDS_LEFT # Current cordinate of 1st card
          # Calculate the x positions of all cards, once
         for cardNum in range(Game.NCARDS):
             self.cardXPositionsList.append(thisLeft)
@@ -50,8 +50,8 @@ class Game():
             thisXPosition = self.cardXPositionsList[cardIndex]
             oCard.setLoc((thisXPosition, Game.CARDS_TOP))
         
-        self.showCard(0)
-        self.cardNumber = 0
+        self.showCard(0) # Pass in the index of the card you wish to reveal.
+        self.cardNumber = 0 # Index number for getCardNameAndValue method
         self.currentCardName, self.currentCardValue = \
                                         self.getCardNameAndValue(self.cardNumber)
         
@@ -73,7 +73,7 @@ class Game():
         oCard.reveal()
     
     def hitHigherOrLower(self, higherOrLower):
-        self.cardNumber += 1
+        self.cardNumber += 1 # To be able to see the next card after choosing if its hogh or low
         self.showCard(self.cardNumber)
         nextCardName, nextCardValue = self.getCardNameAndValue(self.cardNumber)\
         
@@ -98,7 +98,7 @@ class Game():
                 self.messageText.setValue(f'No, the {nextCardName} was not lower')
                 self.loserSound.play()
         
-        self.scoreText.setValue(f'Score: {str(self.score)}')
+        self.scoreText.setValue(f'Score: {self.score}')
 
         self.currentCardValue = nextCardValue # Set up for the next card
 
