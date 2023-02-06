@@ -4,17 +4,20 @@ from Deck import *
 from Card import *
 
 class Game():
-    CARD_OFFSET = 110
-    CARDS_TOP = 300
-    CARDS_LEFT = 75 # As in cards left to each other
-    NCARDS = 8
+    # Card placement on the board
+    CARD_OFFSET = 110 # Buffer amount between cards on the board
+    CARDS_TOP = 300 # Cards placed on the y-axis
+    CARDS_LEFT = 75 # As in cards left to each other; x-axis
+
+    NCARDS = 8 # Number of cards allowed on the board
     POINTS_CORRECT = 15
     POINTS_INCORRECT = 10
 
     def __init__(self, window):
         self.window = window
-        self.oDeck = Deck(self.window)
-        self.score = 100
+        self.oDeck = Deck(self.window) # Instanciate Deck
+        self.score = 100 # Score
+        # Text
         self.scoreText = pygwidgets.DisplayText(window, (450, 164),
                                     'Score: ' + str(self.score),
                                     fontSize=36, textColor=WHITE,
@@ -23,7 +26,7 @@ class Game():
         self.messageText = pygwidgets.DisplayText(window, (50, 460),
                                     '', width=900, justified='center',
                                     fontSize=27, textColor=WHITE)
-        
+        # Sounds
         self.loserSound = pygame.mixer.Sound("sounds/sounds_loser.wav")
         self.winnerSound = pygame.mixer.Sound("sounds/sounds_ding.wav")
         self.cardShuffleSound = pygame.mixer.Sound("sounds/sounds_cardShuffle.wav")
